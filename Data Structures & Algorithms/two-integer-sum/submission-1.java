@@ -1,0 +1,16 @@
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        //2 4 5 6
+        // -> t - arr[i]  -> 7 - 2 -> 5  -> check in Map , if not in Map insert the arr[i] and Index into set.
+        //                   4 - 2 -> 2  -> check in set , yes present get the index by the key in the map.
+        for(int i = 0; i < nums.length; i++){
+            int diff = target - nums[i];
+            if(map.containsKey(diff)){
+                return new int[]{ map.get(diff), i};
+            }
+            map.put(nums[i], i);
+        }
+        return new int[]{-1, -1};
+    }
+}
